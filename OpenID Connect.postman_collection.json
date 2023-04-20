@@ -1,0 +1,808 @@
+{
+	"info": {
+		"_postman_id": "ab133ace-a8f1-49c7-87b7-3aa062a9e49f",
+		"name": "OpenID Connect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "resource owner",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "ro.client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "client.secret",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "AliceSmith@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "alice",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/token",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "discovery",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "ro.client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "alice",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "mypass",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/.well-known/openid-configuration",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						".well-known",
+						"openid-configuration"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resource owner with refresh token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "ro.client",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "alice",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "alice",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "profile offline_access openid",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/token",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "refresh token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "cc",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "bNI03jJ3W3jHt8H3FRBq9NId3cL4wMse",
+							"type": "default"
+						},
+						{
+							"key": "refresh_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI4MDE1MzkzMS00NzRmLTQwNzktODc5MS0yY2RjNWNmZTg1ODAifQ.eyJpYXQiOjE2NjMwMTQ0MjYsImp0aSI6ImM3YTg4NGQxLThkNGUtNDc3MS05YjgyLWYyYjA3YmVkYmQwYiIsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6ODA4OC9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiaHR0cDovL2xvY2FsaG9zdDo4MDg4L3JlYWxtcy9tYXN0ZXIiLCJzdWIiOiIwNzAxNjUzNy0xYTVhLTQ3YzMtYWM5My1iZDYxZDdlZDZkNTYiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoiY2MiLCJzZXNzaW9uX3N0YXRlIjoiZTM0ZDA1YTgtZTIzZS00ZTBlLWIyYzYtMGIyYTZkNjk5MTM1Iiwic2NvcGUiOiJhcGkxIG9mZmxpbmVfYWNjZXNzIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJlMzRkMDVhOC1lMjNlLTRlMGUtYjJjNi0wYjJhNmQ2OTkxMzUifQ.Ms3Y-SUhx4P_D4Lwq3Zd_kIQzgjc-qPdTsn-VOMgfUs",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revocation",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"type": "text",
+						"value": "",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJuYmYiOjE1Nzc0Nzg1NTUsImV4cCI6MTU3NzQ4MjE1NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJjdXN0b21BUEkiXSwiY2xpZW50X2lkIjoicm8uY2xpZW50Iiwic3ViIjoiYWxpY2VAYWxpY2UuY29tIiwiYXV0aF90aW1lIjoxNTc3NDc4NTU1LCJpZHAiOiJsb2NhbCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJjdXN0b21BUEkiXSwiYW1yIjpbInB3ZCJdfQ",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "cc.client.oauth",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "token_type_hint",
+							"value": "access_token",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/revocation",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"revocation"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "instrospect",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxNGNkODMzNTM1YWQ2MjJjODNmYTViYTU1YmY4ZmFiIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1Nzc0NDQ1MjMsImV4cCI6MTU3NzQ0ODEyMywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJjdXN0b21BUEkiXSwiY2xpZW50X2lkIjoiY2MuY2xpZW50Iiwic2NvcGUiOlsiY3VzdG9tQVBJIl19.ViSgTL-IWoYUAKhunbf1KPCgGnJdQ5gGYdetqxW4z5yZccxytJnB3H_5gRbd69ZS9cKyynOXxGPN3PYaKU76Xh_n0x2BW2M_a6lf5by1gx5sAvPG-vhxxrsRXUz3WwYJ3n2vIkCakpKDpmW9BAOYB4PK1hKB7ckqMEdwLUhEwhNAgspI0r4GwFLCHx7OvsFTWSbMALig0PpCQafZxUxybFRRMPMATs99zef2fSliec0TW4ZN8Spf6DD_mHX_bWGj7-GWjoHYA9H04fwIMyyim1fyFFaoTjAN_a7HrfNrdrjoEHdMmK-ttS8OXzhobaoJfMC8rXG8GlajZNwbzuUlUw",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "customAPI",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "customAPI",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/introspect",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"introspect"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "end session",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImUxNGNkODMzNTM1YWQ2MjJjODNmYTViYTU1YmY4ZmFiIiwidHlwIjoiSldUIn0.eyJuYmYiOjE1Nzc0NDQ1MjMsImV4cCI6MTU3NzQ0ODEyMywiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjpbImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9yZXNvdXJjZXMiLCJjdXN0b21BUEkiXSwiY2xpZW50X2lkIjoiY2MuY2xpZW50Iiwic2NvcGUiOlsiY3VzdG9tQVBJIl19.ViSgTL-IWoYUAKhunbf1KPCgGnJdQ5gGYdetqxW4z5yZccxytJnB3H_5gRbd69ZS9cKyynOXxGPN3PYaKU76Xh_n0x2BW2M_a6lf5by1gx5sAvPG-vhxxrsRXUz3WwYJ3n2vIkCakpKDpmW9BAOYB4PK1hKB7ckqMEdwLUhEwhNAgspI0r4GwFLCHx7OvsFTWSbMALig0PpCQafZxUxybFRRMPMATs99zef2fSliec0TW4ZN8Spf6DD_mHX_bWGj7-GWjoHYA9H04fwIMyyim1fyFFaoTjAN_a7HrfNrdrjoEHdMmK-ttS8OXzhobaoJfMC8rXG8GlajZNwbzuUlUw",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "customAPI",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "customAPI",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/endsession",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"endsession"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "client credentials",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "cc",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "bNI03jJ3W3jHt8H3FRBq9NId3cL4wMse",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "offline_access",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8088/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8088",
+					"path": [
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "magic link",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "client.credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "client.secret",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "API1",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{host}}/connect/token",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"token"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IndFdEZ0WGVGRmpDY1ZuM21WU1U5OUEiLCJ0eXAiOiJhdCtqd3QifQ.eyJuYmYiOjE1OTI4OTM2NDUsImV4cCI6MTU5Mjg5NzI0NSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiY2xpZW50X2lkIjoicm8uY2xpZW50Iiwic3ViIjoiODE4NzI3IiwiYXV0aF90aW1lIjoxNTkyODkzNjQ1LCJpZHAiOiJsb2NhbCIsInNjb3BlIjpbIm9wZW5pZCIsInByb2ZpbGUiLCJvZmZsaW5lX2FjY2VzcyJdLCJhbXIiOlsicHdkIl19.O7cZi9bU-hVLhNtMVfqayfJevVS-Y01x2gcvpspOyYqch7wZ77K94BTNBRuTpvm87IUfY8ubWci_IBzPFAsdYa3lI1LcnLQhAmR4qvfuu28MNSvXeUQRkuWqUCL7ggZs6bYksZ4myXWZTXLl8cLEH8ooEvrP47NM1A3-KzWBn3ZDLXjSegmEXYzdvnFVniyC22nFI28uHyPgr7PVu1seu-bSoWKzjCjNhtHSP_l0Tjh5UVraQRUZ8FEuE37m_t5xvfCr_aWJEJ6x7MzrUDQCZIC2alz76u-nxuTCIxUgJZieKaxxpBlAnheQknvzY-lIQCwzaqIhdQQGfOdUXrargA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/connect/userinfo",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"connect",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44321/weatherforecast",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IjlSQTZMd21OVHJQR29ud1BIUmJ5MHciLCJ0eXAiOiJhdCtqd3QifQ.eyJuYmYiOjE1OTQxOTYxMTksImV4cCI6MTU5NDE5OTcxOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwIiwiYXVkIjoiQVBJMSIsImNsaWVudF9pZCI6ImNsaWVudC5jcmVkZW50aWFscyIsInNjb3BlIjpbIkFQSTEiXX0.gOEPIYkCav7vhiPka8obphjUm8Fehe4FQpoTFJVBKrxT5iHa6hdS1fcoW9eAH_j4Vn0_K8YLuwUIAa0GvMu89wUNk5hOk73C9fKv5WjISQ4Oncetpp1bp5iTrLWYiZybjh7StfPGYWW5iokYu-4gWzqIe4D4qkiAQIaqVXIJnehTderkCnkyWRu0ZQ3UDsXwAMWU2eJ9-YAwqPMjr0wxgtUCI0oe6WzeHjcbMV54O_I-rHJ_Iv8riIFRovTxqoJhU69wN9O7U67UbTEmX4lgyGTUfNkiaAVp1mpGyKZRt_q9esPvaRe2w-BL6ucv1lAScXHYNev6R0GuGrtnPIK16w",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44321/weatherforecast",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44321",
+					"path": [
+						"weatherforecast"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
