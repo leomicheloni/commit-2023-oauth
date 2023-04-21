@@ -4,10 +4,8 @@ This is a sample project to show how to use oAuth and Open ID connect to secure 
 Stuff used in Commit Conference 2023 in Madrid. https://koliseo.com/events/commit-2023/agenda/1
 
 - [Slides](./slides.pdf)
-- Demo
+- Demos
+
   - [KeyCloak on Docker](./docker-compose.yaml)
-  ``` bash
-    docker-compose up -d
- ```
   - [Javascript client](./oidc-client-js/README.md)
   - [API](./API)
