@@ -6,5 +6,8 @@ Stuff used in Commit Conference 2023 in Madrid. https://koliseo.com/events/commi
 - [Slides](./slides.pdf)
 - Demo
   - [KeyCloak on Docker](./docker-compose.yaml)
+  ``` bash
+    docker-compose up -d
+ ```
   - [Javascript client](./oidc-client-js/README.md)
   - [API](./API)
